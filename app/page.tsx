@@ -1,6 +1,7 @@
 import SignIn from "@/components/sign-in";
 import { SignOut } from "@/components/sign-out";
 import { auth } from "@/auth";
+import ReclaimDemo from "@/components/reclaim";
 
 export default async function Home() {
   const session = await auth();
@@ -15,6 +16,7 @@ export default async function Home() {
       ) : (
         <SignIn />
       )}
+      <ReclaimDemo />
     </div>
   );
 }
