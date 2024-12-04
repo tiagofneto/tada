@@ -8,15 +8,22 @@ export default async function Home() {
   console.log(session);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      {session ? (
-        <>
-          <h1 className="text-2xl font-bold mb-4">Welcome, {session.user?.name}!</h1>
-          <SignOut />
-        </>
-      ) : (
-        <SignIn />
-      )}
-      <ReclaimDemo />
+      <div className="flex w-full max-w-4xl">
+        <div className="flex-1 p-4 flex flex-col items-center justify-center">
+          {session ? (
+            <>
+              <p>Username: {session.user?.name}</p>
+              <SignOut />
+            </>
+          ) : (
+            <SignIn />
+          )}
+        </div>
+        <div className="border-l border-gray-300 h-full"></div>
+        <div className="flex-1 p-4 flex flex-col items-center justify-center">
+          <ReclaimDemo />
+        </div>
+      </div>
     </div>
   );
 }

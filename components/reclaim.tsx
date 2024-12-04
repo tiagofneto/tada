@@ -72,21 +72,26 @@ function ReclaimDemo() {
  
   return (
     <>
-      <button onClick={getVerificationReq}>Get Verification Request</button>
-
-      {/* Display QR code when URL is available */}
-
-      {requestUrl && (
-        <div style={{ margin: '20px 0' }}>
-          <QRCode value={requestUrl} />
-        </div>
-      )}
-
-      {username && (
+      {username ? (
         <div>
-          <h2>Verification Successful!</h2>
           <p>Username: {username}</p>
         </div>
+      ) : (
+        <>
+          <button 
+            onClick={getVerificationReq}
+            className="flex items-center justify-center bg-gray-800 text-white font-bold py-2 px-4 rounded hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200"
+          >
+            Get Verification Request
+          </button>
+
+          {/* Display QR code when URL is available */}
+          {requestUrl && (
+            <div style={{ margin: '20px 0' }}>
+              <QRCode value={requestUrl} />
+            </div>
+          )}
+        </>
       )}
     </>
   );
