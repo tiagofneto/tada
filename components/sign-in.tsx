@@ -5,7 +5,9 @@ export default function SignIn() {
     <form
       action={async () => {
         "use server"
-        await signIn("github")
+        await signIn("github", {
+            redirectTo: "https://e18b-85-244-177-81.ngrok-free.app/api/auth/callback/github",
+        })
       }}
     >
       <button 

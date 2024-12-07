@@ -5,7 +5,6 @@ import ReclaimDemo from "@/components/reclaim";
 
 export default async function Home() {
   const session = await auth();
-  console.log(session);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="flex w-full max-w-4xl">
