@@ -10,6 +10,7 @@ import Header from '@/components/Header'
 export default function Home() {
   const [currentScreen, setCurrentScreen] = useState(1)
   const [username, setUsername] = useState('JohnDoe')
+  const [contributions, setContributions] = useState('')
 
   const nextScreen = () => {
     setCurrentScreen((prev) => Math.min(prev + 1, 3))
@@ -40,7 +41,10 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             className="h-full"
           >
-            <Screen2 onNext={nextScreen} />
+            <Screen2 onNext={(contributions: string) => {
+              nextScreen()
+              setContributions(contributions)
+            }} />
           </motion.div>
         )}
         {currentScreen === 3 && (
@@ -52,7 +56,7 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             className="h-full"
           >
-            <Screen3 />
+            <Screen3 contributions={contributions} />
           </motion.div>
         )}
       </AnimatePresence>
