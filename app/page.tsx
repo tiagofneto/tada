@@ -6,11 +6,10 @@ import Screen1 from '@/components/Screen1'
 import Screen2 from '@/components/Screen2'
 import Screen3 from '@/components/Screen3'
 import Header from '@/components/Header'
+import { MiniKit } from '@worldcoin/minikit-js'
 
 export default function Home() {
   const [currentScreen, setCurrentScreen] = useState(1)
-  //const [username, setUsername] = useState('JohnDoe')
-  const username = 'JohnDoe'
   const [contributions, setContributions] = useState('')
 
   const nextScreen = () => {
@@ -19,7 +18,7 @@ export default function Home() {
 
   return (
     <main className="h-screen w-screen overflow-hidden bg-gray-100 text-gray-900">
-      <Header username={username} />
+      <Header username={MiniKit.walletAddress ?? 'Human'} />
       <AnimatePresence mode="wait">
         {currentScreen === 1 && (
           <motion.div
