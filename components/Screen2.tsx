@@ -10,7 +10,7 @@ export default function Screen2({ onNext }: { onNext: (contributions: string) =>
   return (
     <div className="h-full flex flex-col justify-center items-center px-4">
       <h1 className="text-2xl font-bold text-center mb-8">
-        Log into Github to prove how good of a dev you are
+        Log into GitHub to prove how good of a dev you are
       </h1>
       <ReclaimDemo onSuccess={onNext} />
       <button
@@ -27,13 +27,17 @@ export default function Screen2({ onNext }: { onNext: (contributions: string) =>
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed bottom-0 left-0 right-0 bg-white p-4 rounded-t-2xl shadow-lg"
+            className="fixed bottom-0 left-0 right-0 bg-white p-4 rounded-t-2xl shadow-lg text-center"
           >
             <h2 className="text-xl font-bold mb-2">How it works</h2>
-            <p className="mb-4">
-              We analyze your GitHub contributions to determine your developer rank.
-              This includes factors such as commit frequency, project diversity,
-              and collaboration with other developers.
+            <p className="mb-4 text-left">
+              You will generate a cryptographic proof of the number of GitHub contributions you made this year and your number of followers.
+            </p>
+            <p className="mb-4 text-left">
+              Based on these proofs, we'll calculate how cracked you are. 
+            </p>
+            <p className="mb-4 text-left">
+              We don't store any of your data.
             </p>
             <button
               onClick={() => setShowModal(false)}

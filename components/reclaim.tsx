@@ -60,7 +60,7 @@ function ReclaimDemo({ onSuccess }: ReclaimDemoProps) {
           {isLoading ? (
             <span>Loading...</span>
           ) : (
-            'Prove github contributions'
+            'Prove GitHub contributions'
           )}
         </button>
       ) : (
