@@ -1,28 +1,62 @@
-import SignIn from "@/components/sign-in";
-import { SignOut } from "@/components/sign-out";
-import { auth } from "@/auth";
-import ReclaimDemo from "@/components/reclaim";
+'use client'
 
-export default async function Home() {
-  const session = await auth();
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Screen1 from '@/components/Screen1'
+import Screen2 from '@/components/Screen2'
+import Screen3 from '@/components/Screen3'
+import Header from '@/components/Header'
+
+export default function Home() {
+  const [currentScreen, setCurrentScreen] = useState(1)
+  const [username, setUsername] = useState('JohnDoe')
+
+  const nextScreen = () => {
+    setCurrentScreen((prev) => Math.min(prev + 1, 3))
+  }
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="flex w-full max-w-4xl">
-        <div className="flex-1 p-4 flex flex-col items-center justify-center">
-          {session ? (
-            <>
-              <p>Username: {session.user?.name}</p>
-              <SignOut />
-            </>
-          ) : (
-            <SignIn />
-          )}
-        </div>
-        <div className="border-l border-gray-300 h-full"></div>
-        <div className="flex-1 p-4 flex flex-col items-center justify-center">
-          <ReclaimDemo />
-        </div>
-      </div>
-    </div>
-  );
+    <main className="h-screen w-screen overflow-hidden bg-gray-100 text-gray-900">
+      <Header username={username} />
+      <AnimatePresence mode="wait">
+        {currentScreen === 1 && (
+          <motion.div
+            key="screen1"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '-100%' }}
+            transition={{ duration: 0.3 }}
+            className="h-full"
+          >
+            <Screen1 onNext={nextScreen} />
+          </motion.div>
+        )}
+        {currentScreen === 2 && (
+          <motion.div
+            key="screen2"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '-100%' }}
+            transition={{ duration: 0.3 }}
+            className="h-full"
+          >
+            <Screen2 onNext={nextScreen} />
+          </motion.div>
+        )}
+        {currentScreen === 3 && (
+          <motion.div
+            key="screen3"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '-100%' }}
+            transition={{ duration: 0.3 }}
+            className="h-full"
+          >
+            <Screen3 />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </main>
+  )
 }
+
