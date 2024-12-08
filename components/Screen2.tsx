@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import ReclaimDemo from './reclaim'
 
 export default function Screen2({ onNext }: { onNext: () => void }) {
   const [showModal, setShowModal] = useState(false)
@@ -11,15 +12,10 @@ export default function Screen2({ onNext }: { onNext: () => void }) {
       <h1 className="text-2xl font-bold text-center mb-8">
         Log into Github to prove how good of a dev you are
       </h1>
-      <button
-        onClick={onNext}
-        className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors mb-4"
-      >
-        Prove github contributions
-      </button>
+      <ReclaimDemo onSuccess={onNext} />
       <button
         onClick={() => setShowModal(true)}
-        className="text-blue-600 font-semibold underline"
+        className="text-blue-600 font-semibold underline pt-4"
       >
         How it works
       </button>
