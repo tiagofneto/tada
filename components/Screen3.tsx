@@ -10,6 +10,9 @@ export default function Screen3({ contributions, followers }: { contributions: s
         <h2 className="text-2xl font-bold mb-4">
           You are in the top {100 - calculateGithubPercentile(parseInt(contributions), parseInt(followers))}% of developers
         </h2>
+        <p className="mb-4 text-gray-600">
+          With {parseInt(contributions).toLocaleString()} contributions and {parseInt(followers).toLocaleString()} followers
+        </p>
         <button
           onClick={() => navigator.share({
             text: 'I am in the top ' + (100 - calculateGithubPercentile(parseInt(contributions), parseInt(followers))) + '% of developers on GitHub',
