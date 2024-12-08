@@ -1,4 +1,4 @@
-export default async function Screen1({ onNext }: { onNext: () => void }) {
+export default function Screen1({ onNext }: { onNext: () => void }) {
   return (
     <div className="h-full flex flex-col justify-center items-center px-4">
       <h1 className="text-2xl font-bold text-center mb-8">

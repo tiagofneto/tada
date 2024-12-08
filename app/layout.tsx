@@ -1,4 +1,3 @@
-import MiniKitProvider from '@/components/minikit-provider'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -16,11 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <MiniKitProvider>
-          {children}
-        </MiniKitProvider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
