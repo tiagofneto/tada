@@ -2,18 +2,17 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { calculateGithubPercentile } from '@/lib/utils'
 
-export default function Screen3({ contributions }: { contributions: string }) {
+export default function Screen3({ contributions, followers }: { contributions: string, followers: string }) {
   const [showModal, setShowModal] = useState(false)
 
   return (
     <div className="h-full flex flex-col justify-center items-center px-4">
       <div className="text-center">
-        <h2 className="text-2xl font-bold mb-4">You have {contributions} contributions</h2>
-        <p className="mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <h2 className="text-2xl font-bold mb-4">
+          You are in the top {100 - calculateGithubPercentile(parseInt(contributions), parseInt(followers))}% of developers
+        </h2>
         <button
           onClick={() => setShowModal(true)}
           className="text-blue-600 font-semibold underline"

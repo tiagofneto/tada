@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReclaimDemo from './reclaim'
 
-export default function Screen2({ onNext }: { onNext: (contributions: string) => void }) {
+export default function Screen2({ onNext }: { onNext: (contributions: { contributions: string | undefined; followers: string | undefined }) => void }) {
   const [showModal, setShowModal] = useState(false)
 
   return (

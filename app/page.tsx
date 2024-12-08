@@ -6,12 +6,12 @@ import Screen1 from '@/components/Screen1'
 import Screen2 from '@/components/Screen2'
 import Screen3 from '@/components/Screen3'
 import Header from '@/components/Header'
+import { MiniKit } from '@worldcoin/minikit-js'
 
 export default function Home() {
   const [currentScreen, setCurrentScreen] = useState(1)
-  //const [username, setUsername] = useState('JohnDoe')
-  const username = 'JohnDoe'
   const [contributions, setContributions] = useState('')
+  const [followers, setFollowers] = useState('')
 
   const nextScreen = () => {
     setCurrentScreen((prev) => Math.min(prev + 1, 3))
@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <main className="h-screen w-screen overflow-hidden bg-gray-100 text-gray-900">
-      <Header username={username} />
+      <Header username={MiniKit.user?.username ?? 'Human'} />
       <AnimatePresence mode="wait">
         {currentScreen === 1 && (
           <motion.div
@@ -42,9 +42,10 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             className="h-full"
           >
-            <Screen2 onNext={(contributions: string) => {
+            <Screen2 onNext={(contributions: { contributions: string | undefined; followers: string | undefined }) => {
               nextScreen()
-              setContributions(contributions)
+              setContributions(contributions.contributions ?? '')
+              setFollowers(contributions.followers ?? '')
             }} />
           </motion.div>
         )}
@@ -57,7 +58,7 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             className="h-full"
           >
-            <Screen3 contributions={contributions} />
+            <Screen3 contributions={contributions} followers={followers}/>
           </motion.div>
         )}
       </AnimatePresence>

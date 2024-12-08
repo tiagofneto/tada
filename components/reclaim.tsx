@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ReclaimProofRequest } from '@reclaimprotocol/js-sdk';
 
 interface ReclaimDemoProps {
-  onSuccess: (contributions: string) => void;
+  onSuccess: (contributions: { contributions: string | undefined; followers: string | undefined }) => void;
 }
 
 function ReclaimDemo({ onSuccess }: ReclaimDemoProps) {
@@ -34,7 +34,11 @@ function ReclaimDemo({ onSuccess }: ReclaimDemoProps) {
       await reclaimProofRequest.startSession({
         onSuccess: (proofs) => {
           if (proofs && typeof proofs !== 'string') {
-            const contributionsData = JSON.parse(proofs?.claimData.context).extractedParameters.contributions.trim();
+            console.log(proofs);
+            const contributionsData = {
+              contributions: proofs.publicData?.contributionsLastYear,
+              followers: proofs.publicData?.followers,
+            };
             onSuccess(contributionsData);
           }
         },
