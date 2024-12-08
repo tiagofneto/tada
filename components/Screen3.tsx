@@ -12,8 +12,7 @@ export default function Screen3({ contributions, followers }: { contributions: s
         </h2>
         <button
           onClick={() => navigator.share({
-            title: 'I am in the top ' + (100 - calculateGithubPercentile(parseInt(contributions), parseInt(followers))) + '% of developers on GitHub',
-            text: 'Check out my developer rank'
+            text: 'I am in the top ' + (100 - calculateGithubPercentile(parseInt(contributions), parseInt(followers))) + '% of developers on GitHub',
           })}
           className="text-blue-600 font-semibold underline"
         >
