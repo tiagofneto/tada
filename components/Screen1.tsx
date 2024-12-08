@@ -1,13 +1,4 @@
-import { MiniKit } from "@worldcoin/minikit-js"
-
 export default async function Screen1({ onNext }: { onNext: () => void }) {
-  async function generateWalletAuth() {
-  const { commandPayload: generateMessageResult, finalPayload } = await MiniKit.commandsAsync.walletAuth({
-    nonce: Math.floor(Math.random() * 1000000).toString(),
-    })
-    return { generateMessageResult, finalPayload }
-  }
-
   return (
     <div className="h-full flex flex-col justify-center items-center px-4">
       <h1 className="text-2xl font-bold text-center mb-8">
