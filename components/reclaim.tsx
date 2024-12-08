@@ -11,7 +11,7 @@ function ReclaimDemo() {
   // State to store the verification request URL
   const [requestUrl, setRequestUrl] = useState('');
   //const [proofs, setProofs] = useState<Proof | string[]>();
-  const [username, setUsername] = useState('');
+  const [contributions, setContributions] = useState('');
 
   const getVerificationReq = async () => {
 
@@ -49,8 +49,9 @@ function ReclaimDemo() {
             } else if (typeof proofs !== 'string') {
               // When using the default callback url, we get a proof object in the response
               console.log(proofs);
+              console.log(JSON.parse(proofs?.claimData.context));
               //setProofs(proofs);
-              setUsername(JSON.parse(proofs?.claimData.context).extractedParameters.username);
+              setContributions(JSON.parse(proofs?.claimData.context).extractedParameters.contributions.trim());
             }
           }
 
@@ -84,9 +85,9 @@ function ReclaimDemo() {
         </div>
       )}
 
-      {username && (
+      {contributions && (
         <div>
-          <p>Username: {username}</p>
+          <p>Contributions: {contributions}</p>
         </div>
       )}
     </>
