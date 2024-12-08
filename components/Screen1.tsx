@@ -14,16 +14,7 @@ export default async function Screen1({ onNext }: { onNext: () => void }) {
         How cracked of a dev are you?
       </h1>
       <button
-        onClick={async () => {
-          const { generateMessageResult, finalPayload } = await generateWalletAuth()
-          if (finalPayload.status === 'error') {
-            console.error('Error generating wallet auth:')
-            console.error(generateMessageResult)
-            console.error(finalPayload)
-          } else {
-            onNext()
-          }
-        }}
+        onClick={onNext}
         className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors"
       >
         Take me to the test
