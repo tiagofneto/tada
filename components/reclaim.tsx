@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import { Proof, ReclaimProofRequest } from '@reclaimprotocol/js-sdk';
-import { MiniKit } from '@worldcoin/minikit-js';
+import { ReclaimProofRequest } from '@reclaimprotocol/js-sdk';
 
 interface ReclaimDemoProps {
   onSuccess: (contributions: string) => void;

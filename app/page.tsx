@@ -9,7 +9,8 @@ import Header from '@/components/Header'
 
 export default function Home() {
   const [currentScreen, setCurrentScreen] = useState(1)
-  const [username, setUsername] = useState('JohnDoe')
+  //const [username, setUsername] = useState('JohnDoe')
+  const username = 'JohnDoe'
   const [contributions, setContributions] = useState('')
 
   const nextScreen = () => {
