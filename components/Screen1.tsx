@@ -1,15 +1,26 @@
+import { Button } from "./ui/button";
+import Image from "next/image";
+
 export default function Screen1({ onNext }: { onNext: () => void }) {
   return (
-    <div className="h-full flex flex-col justify-center items-center px-4">
-      <h1 className="text-2xl font-bold text-center mb-8">
+    <div className="h-full flex flex-col justify-center items-center">
+      <div className="relative w-screen h-[50vh]">
+        <Image 
+          src="/contribs.png" 
+          alt="contribs" 
+          fill
+          className="object-contain px-4"
+          priority
+        />
+      </div>
+      <h1 className="text-2xl font-bold text-center mb-8 px-4">
         How cracked of a dev are you?
       </h1>
-      <button
+      <Button
         onClick={onNext}
-        className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors"
       >
         Take the test
-      </button>
+      </Button>
     </div>
   )
 }

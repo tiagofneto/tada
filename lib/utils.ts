@@ -62,8 +62,3 @@ export function calculateGithubPercentile(contributions: number, followers: numb
     
     return finalPercentile;
 }
-
-// Example usage with type checking
-const contributions = 500;
-const followers = 25;
-const score: number = calculateGithubPercentile(contributions, followers);

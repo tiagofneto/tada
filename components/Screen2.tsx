@@ -34,10 +34,10 @@ export default function Screen2({ onNext }: { onNext: (contributions: { contribu
               You will generate a cryptographic proof of the number of GitHub contributions you made this year and your number of followers.
             </p>
             <p className="mb-4 text-left">
-              Based on these proofs, we'll calculate how cracked you are. 
+              Based on these proofs, we&apos;ll calculate how cracked you are. 
             </p>
             <p className="mb-4 text-left">
-              We don't store any of your data.
+              We don&apos;t store any of your data.
             </p>
             <button
               onClick={() => setShowModal(false)}

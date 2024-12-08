@@ -18,7 +18,7 @@ export default function Home() {
   }
 
   return (
-    <main className="h-screen w-screen overflow-hidden bg-gray-100 text-gray-900">
+    <main className="h-screen w-screen overflow-hidden text-black px-4">
       <Header username={MiniKit.user?.username ?? 'Human'} />
       <AnimatePresence mode="wait">
         {currentScreen === 1 && (

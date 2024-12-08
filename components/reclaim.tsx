@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ReclaimProofRequest } from '@reclaimprotocol/js-sdk';
+import { Button } from './ui/button';
 
 interface ReclaimDemoProps {
   onSuccess: (contributions: { contributions: string | undefined; followers: string | undefined }) => void;
@@ -56,9 +57,8 @@ function ReclaimDemo({ onSuccess }: ReclaimDemoProps) {
   return (
     <div className="flex flex-col items-center gap-4">
       {!requestUrl ? (
-        <button
+        <Button
           onClick={getVerificationReq}
-          className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors"
           disabled={isLoading}
         >
           {isLoading ? (
@@ -66,14 +66,13 @@ function ReclaimDemo({ onSuccess }: ReclaimDemoProps) {
           ) : (
             'Prove GitHub contributions'
           )}
-        </button>
+        </Button>
       ) : (
-        <button
+        <Button
           onClick={() => window.open(requestUrl, '_blank')}
-          className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors"
         >
           Continue to GitHub
-        </button>
+        </Button>
       )}
     </div>
   );
